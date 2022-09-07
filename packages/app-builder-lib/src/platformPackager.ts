@@ -681,7 +681,7 @@ export abstract class PlatformPackager<DC extends PlatformSpecificBuildOptions> 
       "--root",
       this.projectDir,
       "--out",
-      path.resolve(this.projectDir, this.config.directories!.output!, `.icon-${outputFormat}`),
+      path.resolve(this.projectDir, this.expandMacro(this.config.directories!.output!, this.platformSpecificBuildOptions.defaultArch), `.icon-${outputFormat}`),
     ]
     for (const source of sources) {
       args.push("--input", source)
